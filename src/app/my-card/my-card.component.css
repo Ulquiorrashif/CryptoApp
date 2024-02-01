@@ -1,0 +1,17 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+ul{
+  list-style: none;
+}
+:host{
+  margin: 1rem;
+  display: block;
+  /*height: 200px;*/
+  border-bottom: solid 1px;
+  border-radius: 20px;
+  background-color: white;
+  padding: 10px 10px;
+
+}

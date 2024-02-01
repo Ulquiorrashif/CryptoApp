@@ -1,0 +1,9 @@
+
+        <nz-statistic
+          [nzValue]="(11.28 | number: '1.0-2')!"
+          [nzTitle]="'Active'"
+          [nzPrefix]="prefixTplOne"
+          [nzSuffix]="'%'"
+          [nzValueStyle]="{ color: '#CF1322' }"
+        ></nz-statistic>
+        <ng-template #prefixTplOne><span nz-icon nzType="arrow-up"></span></ng-template>
