@@ -19,9 +19,6 @@
         <ng-template #amountErrorTpl  >
           Количество монет должно равняться числу
         </ng-template>
-<!--        @if(validateForm.controls["amount"].invalid && validateForm.controls["amount"].touched){-->
-<!--          <div class="alert">Некорректный номер телефона</div>-->
-<!--        }-->
       </nz-form-control>
     </nz-form-item>
 
@@ -36,7 +33,6 @@
     <nz-form-item>
       <nz-form-label [nzSpan]="7" >Время и дата</nz-form-label>
       <nz-form-control [nzSm]="16" [nzXs]="24">
-<!--        <input nz-input formControlName="date" placeholder="Дата покупки" type="date" />-->
         <nz-date-picker formControlName="date"></nz-date-picker>
       </nz-form-control>
     </nz-form-item>
@@ -47,7 +43,6 @@
         <input nz-input  formControlName="total"  [value]="parseInt(inputAmount.value)*selectedCoin.price" />
       </nz-form-control>
     </nz-form-item>
-<!--    <input nz-input formControlName="date" placeholder="Дата покупки" type="date" />-->
     <nz-form-item>
       <nz-form-control  [nzOffset]="7" [nzSpan]="12">
         <button nz-button nzType="primary" >Добавить актив</button>

@@ -3,14 +3,14 @@ import {MySelectComponent} from "../my-select/my-select.component";
 import {DataServiceService} from "../data-service.service";
 import {NzSelectModule} from "ng-zorro-antd/select";
 import {
-  AbstractControl, FormBuilder,
+  FormBuilder,
   FormControl,
   FormGroup,
   FormsModule,
   NonNullableFormBuilder,
-  ReactiveFormsModule, ValidatorFn, Validators,
+  ReactiveFormsModule, Validators,
 } from "@angular/forms"
-import {UpCasePipe} from "../../up-case.pipe";
+import {UpCasePipe} from "../pipe/up-case.pipe";
 import {NzFormModule} from "ng-zorro-antd/form";
 import {NzIconModule} from "ng-zorro-antd/icon";
 import {ICoinAPI} from "../entity/ICard";
@@ -81,30 +81,16 @@ export class MyFormComponent implements OnInit{
       console.log('submit', this.validateForm.getRawValue());
       this.amount=this.validateForm.controls.amount.value
       this.dataService.addAsset({id:this.selectedCoin.id,...this.validateForm.getRawValue()}).subscribe({
-        next:(data: any) => {console.log(data,"kakayato data")},
+        next:(data: any) => {console.log(data)},
         error: error => console.log(error)
       });
-      // console.log(res)
       this.status=true
       this.validateForm.reset()
     } else {
-      console.log(this.validateForm)
-      console.log("huli blyat ne rabotaet")
     }
-  }
-
-
-
-
-
-
-
-  resetForm($event: MouseEvent) {
-
   }
 
   protected readonly parseInt = parseInt;
 }
 
-// current locale is key of the MyErrorsOptions
 

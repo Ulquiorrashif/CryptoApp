@@ -17,12 +17,4 @@ export class MyDrawerComponent {
     console.log(this.visible,this.visibleChange)
   }
 
-
-  // open(): void {
-  //   this.visible = true;
-  // }
-  //
-  // close(): void {
-  //   this.visible = false;
-  // }
 }

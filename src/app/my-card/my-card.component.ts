@@ -13,14 +13,8 @@ import {DecimalPipe} from "@angular/common";
   templateUrl: './my-card.component.html',
   styleUrl: './my-card.component.css'
 })
-export class MyCardComponent implements OnInit{
+export class MyCardComponent {
 
   @Input() Coin: ICard ;
-  public itemList: any[];
-  public DataList: any[];
 
-  ngOnInit(): void {
-
-  }
-  protected readonly Object = Object;
 }

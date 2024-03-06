@@ -36,13 +36,8 @@ export class MyLayoutComponent implements OnInit{
       }})
 
   }
-  openDrawer(increased:boolean){
-    this.DrawerIsOpen=increased
-  }
   open(){
-    console.log("qwe",this.DrawerIsOpen)
     this.DrawerIsOpen=true
-    console.log("open",this.DrawerIsOpen)
   }
 
   ngOnInit(): void {

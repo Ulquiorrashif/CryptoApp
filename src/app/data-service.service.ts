@@ -1,10 +1,7 @@
 import {Injectable, OnInit} from '@angular/core';
-import {ICard, ICoin} from "./entity/ICard";
 
 import {HttpClient} from "@angular/common/http";
 import {filter, map, pipe} from "rxjs";
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -56,7 +53,7 @@ export class DataServiceService implements OnInit{
           ...item
         }
       });
-      console.log(MyCoinList,"aboba")
+      console.log(MyCoinList)
       MyCoinList.forEach(item=>{
           const coin =DataList.find(elem=>elem.id==item.id)
           this.Summ+=coin.price*item.amount})

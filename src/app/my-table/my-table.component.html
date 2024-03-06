@@ -1,9 +1,4 @@
 
-<!--    <div class="table-operations">-->
-<!--      <button nz-button (click)="sortByAge()">Sort age</button>-->
-<!--      <button nz-button (click)="resetFilters()">Clear filters</button>-->
-<!--      <button nz-button (click)="resetSortAndFilters()">Clear filters and sorters</button>-->
-<!--    </div>-->
     <nz-table #filterTable [nzData]="listOfData" nzTableLayout="fixed" [nzPageSize]="3" nzOuterBordered="true" nzBordered="true" >
       <thead>
         <tr>
@@ -35,6 +30,5 @@
           <td>{{ data.amount }}</td>
         </tr>
       }
-
       </tbody>
     </nz-table>

@@ -4,7 +4,6 @@ import {NzTableFilterFn, NzTableFilterList, NzTableModule, NzTableSortFn, NzTabl
 
 import {FormsModule} from "@angular/forms";
 import {DataServiceService} from "../data-service.service";
-import {DecimalPipe} from "@angular/common";
 import {ICoin} from "../entity/ICard";
 import {HttpClientModule} from "@angular/common/http";
 
@@ -65,8 +64,9 @@ export class MyTableComponent implements  OnInit{
     //     amount: coin.amount
     //   }
     // })
+    // ЧТО-ТО с сортировкой
     this.DataService.getDataCoins().subscribe({next:(data: DataItem[]) => {this.listOfData=data;
-      console.log(this.listOfData,"chipi chapa dubi daba ")
+      console.log(this.listOfData)
       this.listOfColumns= [
         {
           name: 'Name',
@@ -98,7 +98,5 @@ export class MyTableComponent implements  OnInit{
           }
         ];
     }})
-    console.log(this.listOfData,"wtf")
-
   }
 }

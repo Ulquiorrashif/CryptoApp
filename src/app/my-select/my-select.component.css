@@ -1,14 +1,14 @@
 
-      nz-select {
-        width: calc(25vw/3*2);
-        font-size: 20px;
+nz-select {
+  width: calc(25vw/3*2);
+  font-size: 20px;
 
-      }
-      nz-option{
-        display: flex;
-        justify-content: center;
+}
+nz-option{
+  display: flex;
+  justify-content: center;
 
-      }
+}
 p{
   margin-left: 30px;
   display: inline;
@@ -39,7 +39,3 @@ span{
 span > p {
   margin-left: 20px;
 }
-      /*nz-modal{*/
-      /*  border: solid;*/
-      /*  border-radius: 20px;*/
-      /*}*/

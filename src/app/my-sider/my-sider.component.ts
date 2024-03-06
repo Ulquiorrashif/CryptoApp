@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NzLayoutModule} from "ng-zorro-antd/layout";
 import {MyCardComponent} from "../my-card/my-card.component";
-import {ICard, ICoin} from "../entity/ICard";
+import { ICoin} from "../entity/ICard";
 import {DataServiceService} from "../data-service.service";
 import {HttpClientModule} from "@angular/common/http";
 
@@ -18,7 +18,6 @@ export class MySiderComponent implements OnInit{
   list:ICoin[]
 
   ngOnInit(): void {
-    // this.list=this.dataService.getDataCoins()
     this.dataService.getDataCoins().subscribe({next:(data: any) => this.list=data})
   }
 

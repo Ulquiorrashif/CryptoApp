@@ -5,7 +5,7 @@ import {DecimalPipe} from "@angular/common";
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import {ICard} from "../../entity/ICard";
-import {UpCasePipe} from "../../../up-case.pipe";
+import {UpCasePipe} from "../../pipe/up-case.pipe";
 
 
 @Component({

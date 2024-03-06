@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { NgChartsModule } from 'ng2-charts';
-import {ChartType, ChartOptions, Chart,} from 'chart.js';
+import  {Chart} from 'chart.js';
 import {DataServiceService} from "../data-service.service";
 import {HttpClientModule} from "@angular/common/http";
 
@@ -33,35 +33,10 @@ export class DoughnutChartComponent implements OnInit{
           },
           options: {
 
-            // scales: {
-            //   y: {
-            //     beginAtZero: true
-            //   }
-            // }
           }
         });
     }})
     console.log(this.list,"ddd")
-    // new Chart("myChart", {
-    //   type: 'pie',
-    //   data: {
-    //     labels: this.list.map(item=>item.id),
-    //     datasets:
-    //       [{
-    //       label: '$',
-    //       data:this.list.map(item=>item.totalAmount),
-    //       borderWidth: 1
-    //     }]
-    //   },
-    //   options: {
-    //
-    //     // scales: {
-    //     //   y: {
-    //     //     beginAtZero: true
-    //     //   }
-    //     // }
-    //   }
-    // });
   }
 
 }

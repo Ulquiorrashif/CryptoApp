@@ -14,7 +14,6 @@ export class CardItemComponent {
   @Input() title:string="ItemName"
   @Input() content:string|number="ItemContent"
   @Input() sufix:string=""
-  // @Input() type:boolean|undefined=undefined
   @Input() type?:boolean
 
 }

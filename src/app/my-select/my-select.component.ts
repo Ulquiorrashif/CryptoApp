@@ -1,10 +1,7 @@
 import {
-  AfterViewInit,
   Component,
-  ContentChild,
   ElementRef,
-  Injectable, Input,
-  NgModule,
+ Input,
   OnInit,
   ViewChild
 } from '@angular/core';
@@ -13,10 +10,10 @@ import {FormsModule, NgForm} from "@angular/forms";
 import {DataServiceService} from "../data-service.service";
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzModalService } from 'ng-zorro-antd/modal';
-import {UpCasePipe} from "../../up-case.pipe";
+import {UpCasePipe} from "../pipe/up-case.pipe";
 import {TagComponent} from "../tag/tag.component";
 import {DecimalPipe} from "@angular/common";
-import {IsBoldDirective} from "../../is-grow.directive";
+import {IsBoldDirective} from "../directive/is-grow.directive";
 import {NzPipesModule} from "ng-zorro-antd/pipes";
 import {HttpClientModule} from "@angular/common/http";
 
@@ -29,7 +26,7 @@ import {HttpClientModule} from "@angular/common/http";
   templateUrl: './my-select.component.html',
   styleUrls: ['./my-select.component.css']
 })
-export class MySelectComponent implements  OnInit,AfterViewInit{
+export class MySelectComponent implements  OnInit{
   selectedOS=null;
   list:any[];
   @Input() isModal:boolean=true;
@@ -37,12 +34,6 @@ export class MySelectComponent implements  OnInit,AfterViewInit{
   @ViewChild("selectElement", {static: false})
   itemSel:ElementRef;
   constructor(private DataService:DataServiceService,private modal: NzModalService) {
-    // document.addEventListener("keypress",(item)=>{
-    //   if (item.key==="/")
-    //     this.isOpen=!this.isOpen
-    //   console.log(this.selectedOS)
-    // })
-
   }
 
   isVisible = false;
@@ -56,38 +47,15 @@ export class MySelectComponent implements  OnInit,AfterViewInit{
 
       this.isVisible = true;
     }
-
-    // this.modal.confirm({
-    //   nzTitle: '<i>Do you Want to delete these items?</i>',
-    //   nzContent: '<b>Some descriptions</b>',
-    //   nzOnOk: () => console.log('OK'),
-    //   nzStyle:{color:"red"}
-    // });
-    // console.log(this.selectedOS)
   }
 
   ngOnInit(): void {
-    // this.list=this.DataService.getDataApi()
     this.DataService.getDataApi().subscribe({next:(data: any) => this.list=data["result"]})
     console.log(this.list,"k")
   }
-  handleOk(): void {
-    console.log(this.selectedOS)
-    console.log('Button ok clicked!');
-    this.isVisible = false;
-  }
 
   handleCancel(): void {
-    console.log('Button cancel clicked!');
     this.isVisible = false;
     this.selectedOS=null
-  }
-
-  ngAfterViewInit(): void {
-    console.log(this.itemSel)
-    // this.itemSel.nativeElement.addEventListener("click",()=>{
-    //   this.isVisible = true;
-    //   console.log(this.isVisible)
-    // })
   }
 }
