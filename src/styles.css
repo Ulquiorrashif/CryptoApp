@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+/**{*/
+/*  font-size: 30px;*/
+/*}*/
+body::-webkit-scrollbar {
+  width: 5px;
+  height: 10px/* ширина scrollbar */
+}
+body::-webkit-scrollbar-track {
+  background: rgb(9, 74, 119);        /* цвет дорожки */
+}
+body::-webkit-scrollbar-thumb {
+  background-color: gray;    /* цвет плашки */
+  border-radius: 20px;       /* закругления плашки */
+  /*border: 3px solid orange;  !* padding вокруг плашки *!*/
+}
+:root{
+  --black-blue: #001529
+}

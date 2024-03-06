@@ -1,0 +1,12 @@
+<!--<li>-->
+  <div class="header">{{title}}</div>
+  <div [ngStyle]="{ color: type!==undefined ?  (type ? '#3f8600': '#CF1322'):'' }" >
+<!--  <p [ngStyle]="{color: type? '#3f8600': '#CF1322' }" >-->
+    @if (type!==undefined ){
+      <ng-content></ng-content>
+
+    }
+
+    <span>{{content|number: '1.0-2'}} {{sufix}}</span>
+  </div>
+<!--</li>-->

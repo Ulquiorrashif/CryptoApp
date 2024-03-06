@@ -1,0 +1,48 @@
+nz-select {
+  width: calc(25vw/3*2);
+  font-size: 20px;
+
+}
+nz-option{
+  display: flex;
+  justify-content: center;
+
+}
+p{
+  margin-left: 30px;
+  display: inline;
+  font-size: 20px;
+}
+img{
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+}
+
+h1{
+  display: inline;
+  margin-bottom: 0;
+  margin-left: 10px;
+  font-size:34px ;
+  line-height: 24px;
+}
+.headItem{
+  /*padding-top: 10px;*/
+  display: flex;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: solid rgba(128, 128, 128, 0.31) .5px;
+}
+.div{
+  width: 100%;
+  display: flex;
+
+}
+[nz-form] {
+  margin-top: 20px;
+  max-width: 600px;
+}
+
+button {
+  margin-left: 8px;
+}

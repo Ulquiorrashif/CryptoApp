@@ -1,0 +1,21 @@
+
+<!--        <nz-statistic-->
+<!--          [nzValue]="(123 | number: '1.0-2')!"-->
+<!--          [nzTitle]="coin.id"-->
+<!--          [nzPrefix]="prefixTplOne"-->
+<!--          [nzSuffix]="'$'"-->
+<!--          [nzValueStyle]="{ color: coin.grow? '#3f8600': '#CF1322' }"-->
+<!--        ></nz-statistic>-->
+<!--        <ng-template #prefixTplOne><span nz-icon nzType="arrow-up"></span></ng-template>-->
+
+
+<nz-statistic
+  [nzValue]="(coin.totalAmount | number: '1.0-2')!"
+  [nzTitle]="(coin.id|upCase)"
+  [nzPrefix]="prefixTplOne"
+  [nzSuffix]="'$'"
+  [nzValueStyle]="{ color: coin.grow? '#3f8600': '#CF1322',
+  fontSize: '30px'}"
+></nz-statistic>
+<ng-template #prefixTplOne><span nz-icon [nzType]='coin.grow? "arrow-up":"arrow-down"'></span></ng-template>
+

@@ -1,0 +1,14 @@
+/*:host{*/
+/*  height: calc(100% - 55%);*/
+/*}*/
+.table-operations {
+  margin-bottom: 16px;
+}
+
+.table-operations > button {
+  margin-right: 8px;
+}
+
+nz-table{
+  border-radius: 20px;
+}

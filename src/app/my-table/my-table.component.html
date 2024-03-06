@@ -1,0 +1,40 @@
+
+<!--    <div class="table-operations">-->
+<!--      <button nz-button (click)="sortByAge()">Sort age</button>-->
+<!--      <button nz-button (click)="resetFilters()">Clear filters</button>-->
+<!--      <button nz-button (click)="resetSortAndFilters()">Clear filters and sorters</button>-->
+<!--    </div>-->
+    <nz-table #filterTable [nzData]="listOfData" nzTableLayout="fixed" [nzPageSize]="3" nzOuterBordered="true" nzBordered="true" >
+      <thead>
+        <tr>
+            @for( column of listOfColumns; track trackByName){
+              @if(column.name==="Name"){
+                <th [(nzSortOrder)]="column.sortOrder"
+                    [nzSortFn]="column.sortFn"
+                    [nzFilters]="column.listOfFilter"
+                    [nzFilterFn]="column.filterFn"
+                >
+                  {{ column.name }}
+                </th>
+              } @else {
+                <th [(nzSortOrder)]="column.sortOrder"
+                    [nzSortFn]="column.sortFn"
+                >
+                  {{ column.name }}
+                </th>
+              }
+
+          }
+        </tr>
+      </thead>
+      <tbody>
+      @for( data of filterTable.data; track data.id){
+        <tr >
+          <td>{{ data.id }}</td>
+          <td>{{ data.price }}</td>
+          <td>{{ data.amount }}</td>
+        </tr>
+      }
+
+      </tbody>
+    </nz-table>

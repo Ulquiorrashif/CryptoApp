@@ -1,0 +1,64 @@
+
+@if(!selectedCoin && !status){
+  <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select Coin"  [(ngModel)]="selectedCoinId" (ngModelChange)="change()" nzSize="large">
+    @for (itemCoin of list; track itemCoin.id ){
+      <nz-option nzCustomContent nzLabel="{{ itemCoin.name }}"  nzValue="{{ itemCoin.id }}">
+        <img src="{{itemCoin.icon}}" >
+        <p>{{ itemCoin.name }}</p>
+      </nz-option>
+    }
+  </nz-select>
+} @else if (selectedCoin && !status) {
+  <div class="headItem"> <img src="{{selectedCoin.icon}}" style="height: 40px; width: 40px;">  <h1>  ({{selectedCoin.symbol}}) {{ selectedCoin.name |upCase}} </h1></div>
+
+  <form nz-form  [formGroup]="validateForm" (ngSubmit)="submitForm()">
+    <nz-form-item>
+      <nz-form-label [nzSpan]="7" nzRequired>Количество</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzHasFeedback nzValidatingTip="Validating... " [nzErrorTip]="amountErrorTpl">
+        <input nz-input formControlName="amount" placeholder="Укажите количество" #inputAmount />
+        <ng-template #amountErrorTpl  >
+          Количество монет должно равняться числу
+        </ng-template>
+<!--        @if(validateForm.controls["amount"].invalid && validateForm.controls["amount"].touched){-->
+<!--          <div class="alert">Некорректный номер телефона</div>-->
+<!--        }-->
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSpan]="7" >Цена</nz-form-label>
+      <nz-form-control [nzSpan]="12" >
+        <input nz-input formControlName="price" placeholder="mobile" />
+      </nz-form-control>
+
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSpan]="7" >Время и дата</nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24">
+<!--        <input nz-input formControlName="date" placeholder="Дата покупки" type="date" />-->
+        <nz-date-picker formControlName="date"></nz-date-picker>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSpan]="7" >Всего</nz-form-label>
+      <nz-form-control [nzSpan]="12"  >
+        <input nz-input  formControlName="total"  [value]="parseInt(inputAmount.value)*selectedCoin.price" />
+      </nz-form-control>
+    </nz-form-item>
+<!--    <input nz-input formControlName="date" placeholder="Дата покупки" type="date" />-->
+    <nz-form-item>
+      <nz-form-control  [nzOffset]="7" [nzSpan]="12">
+        <button nz-button nzType="primary" >Добавить актив</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+  } @else {
+  <nz-result
+    nzStatus="success"
+    nzTitle="Новый актив добавлен"
+    nzSubTitle="Добавлено {{amount}} {{selectedCoin.name}} по цене {{selectedCoin.price|number:'2.2-2'}} $ "
+  >
+  </nz-result>
+}

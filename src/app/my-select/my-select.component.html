@@ -1,0 +1,39 @@
+
+
+    <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select Coin"  [(ngModel)]="selectedOS"(ngModelChange)="showModal()"  nzSize="large">
+      @for (itemCoin of list; track itemCoin.id ){
+        <nz-option nzCustomContent nzLabel="{{ itemCoin.name }}"  nzValue="{{ itemCoin.id }}">
+          <img src="{{itemCoin.icon}}" >
+          <p>{{ itemCoin.name }}</p>
+        </nz-option>
+      }
+    </nz-select>
+    <nz-modal [style.border-radius.%]="50 |nzToCssUnit" [(nzVisible)]="isVisible"  (nzOnCancel)="handleCancel()"  [nzFooter]="null" [nzWidth]="'28%'" [nzBodyStyle]="{paddingLeft:'10px'}" >
+      <div *nzModalTitle> <img src="{{selectCoin.icon}}" style="height: 40px; width: 40px;">  <h1>  ({{selectCoin.symbol}}) {{ selectCoin.name |upCase}} </h1></div>
+      <ng-container *nzModalContent>
+        <span>
+        <p appBold>1 час: </p>
+        <app-tag [tagStyle]="selectCoin.priceChange1d >0 ? 'green': 'red'">{{ selectCoin.priceChange1d }}%</app-tag>
+        <p appBold >1 день: </p>
+        <app-tag [tagStyle]="selectCoin.priceChange1d >0 ? 'green': 'red'">{{selectCoin.priceChange1d}}%</app-tag>
+        <p appBold>1 неделя: </p>
+        <app-tag [tagStyle]="selectCoin.priceChange1w >0 ? 'green': 'red'">{{selectCoin.priceChange1w}}%</app-tag>
+        </span>
+        <span>
+          <p appBold>Цена:</p>
+          <p>{{selectCoin.price|number:"1.2-2"}} $</p>
+        </span>
+        <span>
+          <p appBold >Цена в BTC:</p>
+          <p>{{selectCoin.priceBtc}} $</p>
+        </span>
+        <span>
+          <p appBold>Рыночная капитализация:</p>
+          <p>{{selectCoin.marketCap}} $</p>
+        </span>
+        <span>
+          <p appBold>Адрес контракта:</p>
+          <p>{{selectCoin.contractAddress}} </p>
+        </span>
+      </ng-container>
+    </nz-modal>

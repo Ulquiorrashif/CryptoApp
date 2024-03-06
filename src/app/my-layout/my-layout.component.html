@@ -1,10 +1,41 @@
 
-    <nz-layout>
-      <nz-header>Header</nz-header>
-      <nz-layout>
-        <nz-sider [nzWidth]="550">
-          <app-my-card></app-my-card>
-        </nz-sider>
-        <nz-content>Content</nz-content>
-      </nz-layout>
-    </nz-layout>
+<!--    <nz-layout>-->
+<!--      <nz-header>Header</nz-header>-->
+<!--      <nz-layout>-->
+<!--        <nz-sider [nzWidth]="550"  >-->
+<!--&lt;!&ndash;          @for (item of list; track item.id){&ndash;&gt;-->
+<!--&lt;!&ndash;          <app-my-card ></app-my-card>&ndash;&gt;-->
+<!--&lt;!&ndash;          }&ndash;&gt;-->
+<!--          <nz-list nzItemLayout="horizontal" >-->
+<!--            @for (item of list; track item.id){-->
+<!--            <nz-list-item >-->
+<!--              <span nz-typography><mark>[ITEM]</mark></span>-->
+<!--              {{ item }}-->
+<!--            </nz-list-item>-->
+<!--            }-->
+<!--          </nz-list>-->
+<!--        </nz-sider>-->
+<!--        <nz-content>Content</nz-content>-->
+<!--      </nz-layout>-->
+<!--    </nz-layout>-->
+
+<header>
+<app-my-select></app-my-select>
+  <button nz-button nzType="primary" (click)="open()">Добавить актив</button>
+</header>
+<app-my-drawer [(visible)]="DrawerIsOpen"></app-my-drawer>
+<main>
+  <aside>
+    @for (item of CardList; track item.id){
+      <app-my-card  [Coin]="item" ></app-my-card>
+
+    }
+  </aside>
+  <section>
+    <h1>Portfolio: {{Summ| number:"2.2-2"}} $</h1>
+    <app-doughnut-chart></app-doughnut-chart>
+    <app-my-table></app-my-table>
+
+  </section>
+
+</main>

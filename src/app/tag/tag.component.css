@@ -1,0 +1,30 @@
+:host{
+  font-size:15px;
+  /*text-align: center;*/
+  font-variant: tabular-nums;
+  font-feature-settings: "tnum";
+
+
+
+}
+.container{
+  /*font-size:10px;*/
+  display: inline-block;
+  line-height: 20px;
+  border: solid 1px;
+  border-radius: 3px;
+  padding: 0rem 7px;
+
+
+
+}
+.tag-red{
+  color: #cf1322;
+  background: #fff1f0;
+  border-color: #ffa39e;
+}
+.tag-green{
+  color: #389e0d;
+  background: #f6ffed;
+  border-color: #b7eb8f;
+}
